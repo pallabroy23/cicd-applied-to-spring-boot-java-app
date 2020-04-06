@@ -1,3 +1,13 @@
-language: java
-sudo: false
-script: mvn clean verify
+ language: java
+
+# we add the java development kit (jdk)
+
+ jdk:
+ - openjdk8
+ - openjdk11
+
+ script:
+- cat $HOME/.m2/settings.xml
+
+ after_success:
+  - bash <(curl -s https://codecov.io/bash)
